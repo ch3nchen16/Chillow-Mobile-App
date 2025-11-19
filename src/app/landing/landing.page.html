@@ -1,0 +1,21 @@
+<ion-content [fullscreen]="true" class="landing-content">
+  <div class="landing-container">
+    <h1 class="landing-title">Welcome to Chillow</h1>
+    <ion-img
+      src="assets/landing-image.svg"
+      alt="welcome to chillow image with houses"
+    ></ion-img>
+  </div>
+
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+    <ion-fab-button [routerLink]="['/register']">
+      <ion-icon name="person-add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button [routerLink]="['/login']">
+      <ion-icon name="chevron-forward-circle"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

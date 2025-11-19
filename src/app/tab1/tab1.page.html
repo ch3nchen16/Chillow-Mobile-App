@@ -1,17 +1,49 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content [fullscreen]="true" class="home-content">
+  <h1 class="home-title">Homes For You</h1>
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12" size-md="10" size-lg="8" size-xl="6">
+        <!-- <ion-card [routerLink]="['/information', property.id]"> -->
+        <ion-card>
+          <img alt="image of a house" src="assets/house1.png" />
+          <ion-card-header>
+            <ion-card-title>€425,000</ion-card-title>
+            <ion-card-subtitle>2 beds | 2 bathrooms | 83 m² </ion-card-subtitle>
+          </ion-card-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+          <ion-card-content>
+            Cloghertown, Clonavy, Garristown, Co. Meath, A42 VY18
+          </ion-card-content>
+        </ion-card>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+        <ion-card>
+          <img alt="Image of a house" src="assets/house2.png" />
+          <ion-card-header>
+            <ion-card-title>€590,000</ion-card-title>
+            <ion-card-subtitle
+              >3 beds | 3 bathrooms | 120 m²
+            </ion-card-subtitle>
+          </ion-card-header>
+
+          <ion-card-content>
+            Abbey Green, Kinsealy, County Dublin
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card>
+          <img alt="Image of a house" src="assets/house3.png" />
+          <ion-card-header>
+            <ion-card-title>€9,250,000</ion-card-title>
+            <ion-card-subtitle
+              >8 beds | 8 bathrooms | 661 m²
+            </ion-card-subtitle>
+          </ion-card-header>
+
+          <ion-card-content>
+            Emsworth, Malahide Road, Kinsealy, County Dublin, D17 EF98
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

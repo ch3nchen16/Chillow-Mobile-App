@@ -1,0 +1,31 @@
+:host{
+
+    .landing-content{
+        --background: #FCF9EA;
+    }    
+
+    .landing-container {
+        text-align: center;
+        margin-top: 50%;
+    }
+
+    .landing-title {
+        font-size: clamp(24px, 10vw, 60px); //adds responsiveness 24px min, 8vw preferred, 48px max
+        color: #FFA4A4;
+        margin-top: 6vh;
+        position: relative;
+        text-align: center;
+    }
+    // ion-fab{
+    //     position: absolute;
+    //     bottom: 20px;
+    //     right: 20px;
+    //     z-index: 10;
+    // }
+    ion-fab-button{
+        --background: #FFA4A4;
+        --background-activated: #BADFDB;
+    }
+
+   
+}

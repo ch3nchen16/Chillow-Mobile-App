@@ -1,12 +1,13 @@
-<ion-content [fullscreen]="true" class="login-content">
-  <div class="login-container">
-    <h1 class="login-title">Welcome Back</h1>
+<ion-content [fullscreen]="true" class="register-content">
+  <div class="register-container">
+    <h1 class="register-title">Welcome</h1>
+    <p>Create an Account</p>
 
-    <p>Sign in to access your account</p>
-
-    <form #form="ngForm">
+    <form>
       <div class="ion-padding">
+        <!-- for email -->
         <ion-item>
+          <!-- ngModel binds the input and given input value -->
           <ion-input
             [(ngModel)]="email"
             name="email"
@@ -14,26 +15,29 @@
             class="input"
             type="email"
           ></ion-input>
+          <!-- ionic icon -->
           <ion-icon name="person-outline"></ion-icon>
         </ion-item>
 
+        <!-- for password -->
         <ion-item>
           <ion-input
             [(ngModel)]="password"
             name="password"
-            placeholder="Password"
             class="input"
-            type="password"
+            placeholder="Password"
           ></ion-input>
           <ion-icon name="lock-closed-outline"></ion-icon>
         </ion-item>
 
-        <ion-button (click)="onLogin()">Login</ion-button>
+        <!-- registration button -->
+        <ion-button (click)="onRegister()">Register</ion-button>
+        <!-- when clicked it calls onRegister method -->
 
         <div>
+          <!-- a link for login page -->
           <p>
-            Don't have an account yet?
-            <a [routerLink]="['/register']">Register Here</a>
+            Already have an account? <a [routerLink]="['/login']">Login Here</a>
           </p>
         </div>
       </div>

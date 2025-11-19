@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
-import { TabsPage } from './tabs.page';
+
 
 export const routes: Routes = [
   {
-    path: 'tabs',
-    component: TabsPage,
+    path: '',
+    loadComponent: () => import('./tabs.page').then(m => m.TabsPage),
     children: [
       {
         path: 'tab1',
@@ -23,7 +23,7 @@ export const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: 'tab1',
         pathMatch: 'full',
       },
     ],
