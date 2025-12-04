@@ -1,0 +1,6 @@
+<ion-card-title>€{{ house.price | number }}</ion-card-title>
+<!--displays price and uses '| number' for DecimalPipe to format-->
+<ion-card-subtitle>
+  <!--displays details and retrieves data from house object in .ts file-->
+  {{ house.beds }} beds | {{ house.bathrooms }} bathrooms | {{ house.area }} m²
+</ion-card-subtitle>

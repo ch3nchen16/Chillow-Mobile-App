@@ -56,7 +56,7 @@ export class LoginPage implements OnInit {
    
   } catch (error: any) {
       switch (error.code) {
-        case 'auth/invalid-email':  // ensures user uses a valid email
+        case 'auth/invalid-email':  //ensures user uses a valid email
         this.showToast('Please enter a valid email address.', 'danger');
         break;
 

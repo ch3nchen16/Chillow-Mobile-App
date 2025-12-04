@@ -1,39 +1,24 @@
 import { Injectable } from '@angular/core';
 import { initializeApp } from 'firebase/app';
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } from 'firebase/auth';
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class Identity {
 
-  private firebaseConfig = {
-  apiKey: "AIzaSyAL8C46KlzkyqYQcadmh4ynxlDpu9V6Zpc",
-  authDomain: "chillow-904d4.firebaseapp.com",
-  projectId: "chillow-904d4",
-  storageBucket: "chillow-904d4.firebasestorage.app",
-  messagingSenderId: "540416047833",
-  appId: "1:540416047833:web:5703267283fb04e409dcc8"
-};
-
-// Initialize Firebase
-private app = initializeApp(this.firebaseConfig);
+//Initialize Firebase
+private app = initializeApp(environment.firebaseConfig);
 private auth = getAuth(this.app);
 
+//login
 async login(email: string, password: string) {
     return await signInWithEmailAndPassword(this.auth, email, password);
   }
-
+//register
   async register(email: string, password: string) {
     return await createUserWithEmailAndPassword(this.auth, email, password);
-  }
-
-  async logout() {
-    return await signOut(this.auth);
-  }
-
-  get currentUser() {
-    return this.auth.currentUser;
   }
   
 }

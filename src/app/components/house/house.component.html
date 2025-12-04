@@ -1,0 +1,15 @@
+
+<ion-card [routerLink]="['/information', house.id]">
+  <!--when clicked it goes to /information/:id-->
+  <!--[image] = takes image object form this house and gives it to child component-->
+  <app-house-image [image]="house.content[0]"></app-house-image>
+
+  <ion-card-header>
+    <app-house-description [desc]="house.description"></app-house-description>
+  </ion-card-header>
+  <!--description -->
+  <ion-card-content>
+    <app-house-location [location]="house.address"></app-house-location>
+  </ion-card-content>
+  <!--location -->
+</ion-card>

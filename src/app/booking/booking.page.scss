@@ -1,19 +1,19 @@
 :host{
-    .login-content{
-        --background: #FCF9EA; //-- breaks through shadow DOM
+    .booking-content{
+        --background: #FCF9EA; //-- lets you break through Ionic's shadow DOM
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100vh;
         flex-direction: column;
     }
-    
-    .login-container{
+
+    .booking-container{
         text-align: center;
     }
 
-    .login-title {
-        font-size: clamp(24px, 8vw, 48px); //adds responsiveness 24px min, 8vw preferred, 48px max
+    .booking-title {
+        font-size: clamp(24px, 8vw, 48px);  //clamp for responsiveness, 24px min, 8vh preferred, 48px max
         color: #FFA4A4;
         margin-top: 6vh;
         position: relative;
@@ -26,11 +26,11 @@
     }
 
     p{
+        margin-top: 4vh;
         font-size: 1.25rem;
         color: #403e3f;
     }
 
-    // for email and password
     .input{
         font-size: clamp(12px, 1.1rem, 40px);
         width: 100%;
@@ -46,7 +46,7 @@
 
     ion-button{
         --background: #FFA4A4;
-        --background-activated: #696FC7; //button colour when clicked
+        --background-activated: #696FC7; //button color when clicked
         --border-radius: 6vh;
         font-size: 1.25rem;
         margin: 2vh auto;
@@ -54,5 +54,4 @@
         max-width: 500px;
         font-weight: bold;
     }
-
 }

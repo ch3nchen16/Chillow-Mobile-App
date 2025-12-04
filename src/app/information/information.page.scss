@@ -1,0 +1,128 @@
+:host{
+    .info-content{
+        --background: #FCF9EA;
+        --color: #403e3f; //font
+    
+    }
+
+    
+    swiper-container{
+        width: 100%;
+        aspect-ratio: 16 / 9; //preferred ratio width/height
+        --swiper-pagination-color: #FFBDBD; //navigation arrows  
+        --swiper-navigation-color: #FFBDBD;  
+    }
+    
+    swiper-slide{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    swiper-slide img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover; //fills container while keeping aspect ratio
+        border-radius: 8px;
+    }
+
+    //css for address
+    .address{
+        margin-left: 1rem;
+        margin-right: 1rem;
+        font-size: clamp(12px, 4vw, 40px); //12px = min, 4vw = preferred, 20px = max
+    }
+
+    //special features 
+    .features{
+
+        ion-icon{
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-right: 6px;
+        }
+
+        fa-icon{
+            margin-right: 6px;
+        }
+
+        ul{
+            flex-wrap: wrap;
+            list-style: none;
+            display: flex; 
+            gap: 1rem;
+            justify-content: center;
+            padding: 0;
+            
+        }
+
+        li{
+            white-space: nowrap;
+            display: inline-flex;
+            vertical-align: middle;
+            font-size: clamp(0.9rem, 3vw, 1.1rem);
+        }
+    }
+   
+
+    .price{
+        margin-left: 1rem;
+        font-size: clamp(1.5rem, 4vw, 2.5rem);
+        font-weight: bold;
+    }
+
+    
+    //what's special?
+    .special{
+        margin-top: 1.5rem;
+        padding: 0 1rem;
+
+        h2{
+            font-weight: bold;
+        }
+        
+    }
+
+    //accordion
+    ion-accordion-group {
+        padding: 0 1rem;
+
+        h2{
+            font-weight: bold;
+        }
+        
+        ion-accordion {
+            ion-item {
+                --background: #BADFDB;    
+                --color: #403e3f;
+                font-size: clamp(0.9rem, 6vw, 1.1rem);  
+            }
+
+            .ion-padding {
+                background: #FFBDBD;  
+                font-size: clamp(0.9rem, 6vw, 1.1rem);      
+            }
+        }
+    }
+
+    //booking button
+    .book-btn{
+        display: flex;
+        justify-content: center;  // centers horizontally
+        margin-top: 1rem;  
+
+        ion-button{
+            font-size: clamp(0.9rem, 6vw, 1.1rem);
+            --background: #FFBDBD;
+            --background-activated: #BADFDB;
+            --color: #403e3f;
+            
+        }
+    }
+
+    ion-fab-button{
+        --background: #FFA4A4;
+        --background-activated: #BADFDB;
+    }
+
+}

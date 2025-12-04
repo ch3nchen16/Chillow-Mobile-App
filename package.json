@@ -3,15 +3,16 @@
   "version": "0.0.1",
   "author": "Ionic Framework",
   "homepage": "https://ionicframework.com/",
+  "description": "An Ionic project",
+  "private": true,
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "ionic serve",
+    "build": "ionic build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "^20.0.0",
     "@angular/common": "^20.0.0",
@@ -30,10 +31,11 @@
     "@fortawesome/free-brands-svg-icons": "^7.0.0",
     "@fortawesome/free-regular-svg-icons": "^7.0.0",
     "@fortawesome/free-solid-svg-icons": "^7.0.0",
-    "@ionic/angular": "^8.0.0",
+    "@ionic/angular": "^8.7.10",
     "firebase": "^12.5.0",
     "ionicons": "^7.0.0",
     "rxjs": "~7.8.0",
+    "swiper": "^12.0.3",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
   },
@@ -64,6 +66,5 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "typescript": "~5.8.0"
-  },
-  "description": "An Ionic project"
+  }
 }

@@ -7,13 +7,17 @@
     ></ion-img>
   </div>
 
+  <!--button for registration-->
   <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+    <div class="fab-label">Register</div>
     <ion-fab-button [routerLink]="['/register']">
       <ion-icon name="person-add-outline"></ion-icon>
     </ion-fab-button>
   </ion-fab>
 
+  <!--button for login-->
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <div class="fab-label">Login</div>
     <ion-fab-button [routerLink]="['/login']">
       <ion-icon name="chevron-forward-circle"></ion-icon>
     </ion-fab-button>

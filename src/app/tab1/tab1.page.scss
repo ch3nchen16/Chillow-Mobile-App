@@ -1,7 +1,9 @@
-:host{
+:host {
+
     .home-content{
         --background: #BADFDB;
     }
+    
     .home-title {
         font-size: clamp(24px, 8vw, 60px); //adds responsiveness 24px min, 8vw preferred, 48px max
         color: #FF7F7F;
@@ -9,35 +11,14 @@
         position: relative;
         text-align: center;
     }
-    
-    ion-card{
-        --background: #FCF9EA;
-        width: 100%;
-        max-width: clamp(300px, 80vw, 1000px);
-        margin: 2vh auto;
+
+    .card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1rem;
+        padding: 1rem;
+        align-items: stretch;
+        
     }
 
-    ion-card:hover {
-        transform: scale(1.02);
-        }
-
-    img{
-        display: block;
-        padding: 12px;
-        width: 100%;            
-        height: auto;
-        object-fit: cover;
-    }
-    ion-card-title{
-        font-size: clamp(24px, 7vw, 48px); //adds responsiveness 24px min, 7vw preferred, 48px max
-        font-weight: bold;
-    }
-
-    ion-card-subtitle{
-        font-size: clamp(12px, 1rem, 2rem);
-    }
-
-    ion-card-content{
-        font-size: clamp(12px, 0.9rem, 40px);
-    }
 }

@@ -6,26 +6,32 @@
 
     .landing-container {
         text-align: center;
-        margin-top: 50%;
+        padding: 4vh 2vw;
+
+        ion-img{
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            
+        }
     }
 
+    .fab-label{
+        color: #403e3f;
+    }
     .landing-title {
-        font-size: clamp(24px, 10vw, 60px); //adds responsiveness 24px min, 8vw preferred, 48px max
+        font-size: clamp(24px, 10vw, 60px); //24px = min, 8vw = preferred, 48px = max
         color: #FFA4A4;
         margin-top: 6vh;
         position: relative;
         text-align: center;
     }
-    // ion-fab{
-    //     position: absolute;
-    //     bottom: 20px;
-    //     right: 20px;
-    //     z-index: 10;
-    // }
+
     ion-fab-button{
         --background: #FFA4A4;
         --background-activated: #BADFDB;
     }
+
+    
 
    
 }

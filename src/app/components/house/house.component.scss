@@ -1,0 +1,13 @@
+:host{
+    ion-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        box-sizing: border-box;
+        border-radius: 8px;
+        overflow: hidden;
+        background-color: #FCF9EA;
+    }
+
+}
