@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonItem, IonInput, IonIcon, IonButton} from '@ionic/angular/standalone';
 import { RouterModule, Router } from '@angular/router'; 
@@ -11,7 +11,7 @@ import { ToastController } from '@ionic/angular'; //for form validation
   templateUrl: './register.page.html',
   styleUrls: ['./register.page.scss'],
   standalone: true,
-  imports: [IonContent, CommonModule, FormsModule, IonItem, IonInput, IonIcon, RouterModule, IonButton]
+  imports: [IonContent, FormsModule, IonItem, IonInput, IonIcon, RouterModule, IonButton]
 })
 export class RegisterPage implements OnInit {
 

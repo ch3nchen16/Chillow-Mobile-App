@@ -1,8 +1,10 @@
 <ion-content [fullscreen]="true" class="home-content">
-  
+
   <h1 class="home-title">Homes For You</h1>
   <div class="card-grid">
-    <app-house *ngFor="let house of houses" [house]="house"></app-house>
+    @for (house of houses; track house) {
+      <app-house [house]="house"></app-house>
+    }
     <!--passes each house to child component-->
     <!--parent component binds each house object to child component's house inout-->
   </div>

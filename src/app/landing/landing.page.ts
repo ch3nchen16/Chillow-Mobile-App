@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { IonContent, IonImg, IonFab, IonFabButton, IonIcon } from '@ionic/angular/standalone';
@@ -10,7 +10,7 @@ import { IonContent, IonImg, IonFab, IonFabButton, IonIcon } from '@ionic/angula
   templateUrl: './landing.page.html',
   styleUrls: ['./landing.page.scss'],
   standalone: true,
-  imports: [IonContent, CommonModule, FormsModule, IonImg, IonFab, IonFabButton, IonIcon, RouterModule]
+  imports: [IonContent, FormsModule, IonImg, IonFab, IonFabButton, IonIcon, RouterModule]
 })
 export class LandingPage implements OnInit {
 
