@@ -56,8 +56,8 @@ export class House {
 
        },
 
-       //address object
-      address: 'Cloghertown, Clonavy, Garristown, Co. Meath, A42 VY18'
+      address: "Cloghertown, Clonavy, Garristown, Co. Meath, A42 VY18",
+      agent: { name: "William Horan", photo: "assets/william.png" },
     },
     {
       id: 2,
@@ -72,10 +72,12 @@ export class House {
         { url: 'assets/house1 kitchen.jpg', type: 'image' },
         { url: 'assets/house1bathroom.jpg', type: 'image' }
       ],
-      description: { price: 525000, 
+      description: { 
+        price: 525000, 
         beds: 3, 
         bathrooms: 3, 
         area: 87, 
+
         interior: [
           "Heating: Natural Gas",
           "Cooling: Wall Unit(s), Gas",
@@ -90,11 +92,12 @@ export class House {
           "5 min walk to bus stop",
           "Close to M2 motorway"
         ],
-        special: [
+        special: 
           "Experience a remarkable community of homes that blend timeless charm with contemporary style. Spanning up to four stories, each residence is designed with care to embody the vibrancy of city life while providing a peaceful sanctuary to return to."
-        ]
+        
       },
-      address: 'Emsworth, Malahide Road, Kinsealy, County Dublin, D17 EF98'
+      address: "Emsworth, Malahide Road, Kinsealy, County Dublin, D17 EF98",
+      agent: { name: "Idris Fisher", photo: "assets/idris.png" },
     },
     {
       id: 3,
@@ -128,11 +131,11 @@ export class House {
           "5 min walk to bus stop",
           "Close to M2 motorway"
         ],
-        special: [
+        special: 
           "Experience a remarkable community of homes that blend timeless charm with contemporary style. Spanning up to four stories, each residence is designed with care to embody the vibrancy of city life while providing a peaceful sanctuary to return to."
-        ]
        },
-      address: 'Emsworth, Malahide Road, Kinsealy, County Dublin, D17 EF98'
+      address: "Emsworth, Malahide Road, Kinsealy, County Dublin, D17 EF98",
+      agent: { name: "Cillian Elba", photo: "assets/cillian.png" },
     },
     {
       id: 4,
@@ -150,7 +153,7 @@ export class House {
       description: { 
         price: 695000, 
         beds: 3, 
-        bathrooms: 1, 
+        bathrooms: 2, 
         area: 118, 
         interior: [
           "Heating: Natural Gas",
@@ -166,11 +169,12 @@ export class House {
           "5 min walk to bus stop",
           "Close to M2 motorway"
         ],
-        special: [
+        special: 
           "Experience a remarkable community of homes that blend timeless charm with contemporary style. Spanning up to four stories, each residence is designed with care to embody the vibrancy of city life while providing a peaceful sanctuary to return to."
-        ]
+        
       },
-      address: '60 Barton Road West, Rathfarnham, Rathfarnham, Dublin 14, D14YY19'
+      address: "60 Barton Road West, Rathfarnham, Rathfarnham, Dublin 14, D14YY19",
+      agent: { name: "Chris O'brien", photo: "assets/chris.png" },
     },
     {
       id: 5,
@@ -204,11 +208,12 @@ export class House {
           "5 min walk to bus stop",
           "Close to M2 motorway"
         ],
-        special: [
+        special: 
           "Experience a remarkable community of homes that blend timeless charm with contemporary style. Spanning up to four stories, each residence is designed with care to embody the vibrancy of city life while providing a peaceful sanctuary to return to."
-        ]
+        
       },
-      address: '22 Mountain View Park, Greystones, Co. Wicklow, A63AX82'
+      address: "22 Mountain View Park, Greystones, Co. Wicklow, A63AX82",
+      agent: { name: "George Griffin", photo: "assets/george.png" },
     },
     {
       id: 6,
@@ -242,11 +247,12 @@ export class House {
           "5 min walk to bus stop",
           "Close to M2 motorway"
         ],
-        special: [
+        special: 
           "Experience a remarkable community of homes that blend timeless charm with contemporary style. Spanning up to four stories, each residence is designed with care to embody the vibrancy of city life while providing a peaceful sanctuary to return to."
-        ]
+        
       },
-      address: '47 Cairnsfort, Golf Links Road, Castletroy, Limerick, Castletroy, Co. Limerick, V94Y2NE'
+      address: "47 Cairnsfort, Golf Links Road, Castletroy, Limerick, Castletroy, Co. Limerick, V94Y2NE",
+      agent: { name: "Peter Parker", photo: "assets/peter.png" },
     },
     {
       id: 7,
@@ -280,11 +286,12 @@ export class House {
           "5 min walk to bus stop",
           "Close to M2 motorway"
         ],
-        special: [
+        special: 
           "Experience a remarkable community of homes that blend timeless charm with contemporary style. Spanning up to four stories, each residence is designed with care to embody the vibrancy of city life while providing a peaceful sanctuary to return to."
-        ]
+        
       },
-      address: '2 Elm Drive, Oldcastle Road, Ballyjamesduff, Co. Cavan, A82Y542'
+      address: "2 Elm Drive, Oldcastle Road, Ballyjamesduff, Co. Cavan, A82Y542",
+      agent: { name: "Finbar Dunne", photo: "assets/Finbar.png" },
     },
     {
       id: 8,
@@ -318,11 +325,12 @@ export class House {
           "5 min walk to bus stop",
           "Close to M2 motorway"
         ],
-        special: [
+        special: 
           "Experience a remarkable community of homes that blend timeless charm with contemporary style. Spanning up to four stories, each residence is designed with care to embody the vibrancy of city life while providing a peaceful sanctuary to return to."
-        ]
+        
       },
-      address: '28 Brandon Square, Waterville, Blanchardstown, Dublin 15, D15X297'
+      address: "28 Brandon Square, Waterville, Blanchardstown, Dublin 15, D15X297",
+      agent: { name: "Bryan Ronan", photo: "assets/bryan.png" },
     },
     {
       id: 9,
@@ -356,11 +364,12 @@ export class House {
           "5 min walk to bus stop",
           "Close to M2 motorway"
         ],
-        special: [
+        special: 
           "Experience a remarkable community of homes that blend timeless charm with contemporary style. Spanning up to four stories, each residence is designed with care to embody the vibrancy of city life while providing a peaceful sanctuary to return to."
-        ]
+        
       },
-      address: '148 Evanwood, Golf Links Road, Castletroy, Co. Limerick, V94PC5R'
+      address: "148 Evanwood, Golf Links Road, Castletroy, Co. Limerick, V94PC5R",
+      agent: { name: "Ellis Johnson", photo: "assets/ellis.png" },
     },
     {
       id: 10,
@@ -394,11 +403,12 @@ export class House {
           "5 min walk to bus stop",
           "Close to M2 motorway"
         ],
-        special: [
+        special: 
           "Experience a remarkable community of homes that blend timeless charm with contemporary style. Spanning up to four stories, each residence is designed with care to embody the vibrancy of city life while providing a peaceful sanctuary to return to."
-        ]
+        
       },
-      address: 'Shielbaggan, Ramsgrange, Co. Wexford, Y34 YP44'
+      address: "Shielbaggan, Ramsgrange, Co. Wexford, Y34 YP44",
+      agent: { name: "Cara Reilly", photo: "assets/cara.png" },
     },
   ];
 

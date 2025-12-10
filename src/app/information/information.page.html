@@ -1,92 +1,98 @@
 @if (house) {
-  <ion-content class="info-content">
-    <ion-fab vertical="top" horizontal="start" slot="fixed">
-      <!-- <div class="fab-label">Exit</div> -->
-      <ion-fab-button [routerLink]="['/tabs/tab1']">
-        <ion-icon name="chevron-back-circle"></ion-icon>
-      </ion-fab-button>
-    </ion-fab>
-    <!--swiper for carousel-->
-    <swiper-container slides-per-view="1" pagination="true" navigation="true">
-      <!--navigation adds the arrows-->
-      @for (img of house.content; track img) {
-        <swiper-slide>
-          <!--loops through house's content array-->
-          <img [src]="img.url" alt="House image" />
-          <!--displays each image-->
-        </swiper-slide>
-      }
-    </swiper-container>
-    <h1 class="price">€{{ house.description.price | number }}</h1>
-    <div class="features">
-      <ul>
-        <li>
-          <ion-icon name="bed-outline"></ion-icon> {{ house.description.beds }}
-          Beds
-        </li>
-        <li>
-          <fa-icon [icon]="faShower"></fa-icon> {{ house.description.bathrooms }}
-          Bathrooms
-        </li>
-        <li>
-          <fa-icon [icon]="faRuler"></fa-icon> {{ house.description.area }} m²
-        </li>
-      </ul>
-    </div>
-    <p class="address">{{ house.address }}</p>
-    <!--displays bio-->
-    <div class="special">
-      <h2>What's Special</h2>
-      <p>{{ house.description.special }}</p>
-    </div>
-    <ion-accordion-group>
-      <h2>Special Features</h2>
-      <!--Interior Features-->
-      <ion-accordion value="first">
-        <ion-item slot="header">
-          <ion-label>Interior Features</ion-label>
-        </ion-item>
-        <div class="ion-padding" slot="content">
-          <ul>
-            @for (item of house.description.interior; track item) {
-              <li>{{ item }}</li>
-            }
-            <!--loops through interior features array-->
-          </ul>
-        </div>
-      </ion-accordion>
-      <!--Property Features-->
-      <ion-accordion value="second">
-        <ion-item slot="header">
-          <ion-label>Property Features</ion-label>
-        </ion-item>
-        <div class="ion-padding" slot="content">
-          <ul>
-            @for (item of house.description.property; track item) {
-              <li>{{ item }}</li>
-            }
-          </ul>
-        </div>
-      </ion-accordion>
-      <!--Transport Facilities-->
-      <ion-accordion value="third">
-        <ion-item slot="header">
-          <ion-label>Transport Facilities</ion-label>
-        </ion-item>
-        <div class="ion-padding" slot="content">
-          <ul>
-            @for (item of house.description.transport; track item) {
-              <li>{{ item }}</li>
-            }
-          </ul>
-        </div>
-      </ion-accordion>
-    </ion-accordion-group>
-    <!--button for booking-->
-    <div class="book-btn">
-      <ion-button [routerLink]="['/booking']" shape="round"
-        >Book a Viewing</ion-button
-        >
+<ion-content class="info-content">
+  <ion-fab vertical="top" horizontal="start" slot="fixed">
+    <!-- <div class="fab-label">Exit</div> -->
+    <ion-fab-button [routerLink]="['/tabs/tab1']">
+      <ion-icon name="chevron-back-circle"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <!--swiper for carousel-->
+  <swiper-container slides-per-view="1" pagination="true" navigation="true">
+    <!--navigation adds the arrows-->
+    @for (img of house.content; track img) {
+    <swiper-slide>
+      <!--loops through house's content array-->
+      <img [src]="img.url" alt="House image" />
+      <!--displays each image-->
+    </swiper-slide>
+    }
+  </swiper-container>
+
+  <h1 class="price">€{{ house.description.price | number }}</h1>
+  <div class="features">
+    <ul>
+      <li>
+        <ion-icon name="bed-outline"></ion-icon> {{ house.description.beds }}
+        Beds
+      </li>
+      <li>
+        <fa-icon [icon]="faShower"></fa-icon> {{ house.description.bathrooms }}
+        Bathrooms
+      </li>
+      <li>
+        <fa-icon [icon]="faRuler"></fa-icon> {{ house.description.area }} m²
+      </li>
+    </ul>
+  </div>
+  <p class="address">{{ house.address }}</p>
+  <!--displays bio-->
+  <div class="special">
+    <h2>What's Special</h2>
+    <p>{{ house.description.special }}</p>
+  </div>
+  <ion-accordion-group>
+    <h2>Special Features</h2>
+    <!--Interior Features-->
+    <ion-accordion value="first">
+      <ion-item slot="header">
+        <ion-label>Interior Features</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <ul>
+          @for (item of house.description.interior; track item) {
+          <li>{{ item }}</li>
+          }
+          <!--loops through interior features array-->
+        </ul>
       </div>
-    </ion-content>
-  }
+    </ion-accordion>
+    <!--Property Features-->
+    <ion-accordion value="second">
+      <ion-item slot="header">
+        <ion-label>Property Features</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <ul>
+          @for (item of house.description.property; track item) {
+          <li>{{ item }}</li>
+          }
+        </ul>
+      </div>
+    </ion-accordion>
+    <!--Transport Facilities-->
+    <ion-accordion value="third">
+      <ion-item slot="header">
+        <ion-label>Transport Facilities</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <ul>
+          @for (item of house.description.transport; track item) {
+          <li>{{ item }}</li>
+          }
+        </ul>
+      </div>
+    </ion-accordion>
+  </ion-accordion-group>
+  <!--button for booking-->
+  <div class="agent">
+    <h2>Agent:</h2>
+    <p>{{ house.agent.name }}</p>
+    <img [src]="house.agent.photo" alt="image of agent" />
+  </div>
+  <div class="book-btn">
+    <ion-button [routerLink]="['/booking']" shape="round"
+      >Book a Viewing</ion-button
+    >
+  </div>
+</ion-content>
+}
