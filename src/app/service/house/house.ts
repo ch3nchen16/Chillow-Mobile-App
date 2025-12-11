@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'; //decorator 
-import { collection, doc, getDoc, getDocs } from "firebase/firestore"; 
+import { collection, doc, getDoc, getDocs, addDoc } from "firebase/firestore"; 
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 import { environment } from 'src/environments/environment';
@@ -444,25 +444,33 @@ export class House {
     
   }
 
-  
 
   // Return a single property by ID
   // getHouseById(id: number) {
   //   return this.houses.find(h => h.id === id);
   // }
 
-  async getHouseById(id: string) {
-  const docRef = doc(this.db, "house", id);   
-  const docSnap = await getDoc(docRef);
-
-  if (!docSnap.exists()) {
-    return null;
+  getHouseById(id: string) {
+    return this.houses.find((house: any) => house.id == id);
   }
 
-  return { id: docSnap.id, ...docSnap.data() };
-}
+  // async addHouseAd() {
+  //   try {
+  //     const docRef = await addDoc(collection(this.db, "house"), {
+  //       userInfo: {
+  //         name: "New User",
+  //         profileImage: "assets/img/user3.jpg",
+  //         location: "Unknown"
+  //       },
+  //       media: [
+  //         {type: "image", src: "assets/img/post3.jpg"},
+  //       ]
+  //     });
 
+  //     console.log("Document written with ID: ", docRef.id);
+  //   } catch (e) {
+  //     console.error("Error adding document: ", e);
+  //  }
 
- 
   
 }

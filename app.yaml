@@ -1,0 +1,18 @@
+runtime: nodejs24 #latest version - tells which runtine env to use 
+service: default #defualt = main service for the project
+
+# defines routing (how app eng serves files when users visit URLs)
+handlers:
+- url: /assets  #URLs starting with /assets
+  static_dir: www/assets #any requests to /assets will serve these from 
+# www/assets/ folder 
+  
+# Serve all other files and URLs through index.html (lets Angular handle the
+# routing because app emg doesn't know for example /booking)
+- url: /.*
+  static_files: www/index.html
+  upload: www/index.html
+
+# app is running in production environment
+env_variables:
+  NODE_ENV: 'production'
