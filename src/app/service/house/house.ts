@@ -1,13 +1,26 @@
 import { Injectable } from '@angular/core'; //decorator 
+import { collection, doc, getDoc, getDocs } from "firebase/firestore"; 
+import { initializeApp } from 'firebase/app';
+import { getFirestore } from 'firebase/firestore';
+import { environment } from 'src/environments/environment';
+
 
 @Injectable({
   providedIn: 'root',
 })
+
+
+
+
 export class House {
   //holds the data for the houses
+  //Initialize Firebase
+  private app = initializeApp(environment.firebaseConfig);
+  private db = getFirestore(this.app);
 
   //array of houses containing multiple objects
-  private houses = [
+  private houses: any[] = [];
+  /*= [ 
     {
       //id object
     id: 1, 
@@ -291,7 +304,7 @@ export class House {
         
       },
       address: "2 Elm Drive, Oldcastle Road, Ballyjamesduff, Co. Cavan, A82Y542",
-      agent: { name: "Finbar Dunne", photo: "assets/Finbar.png" },
+      agent: { name: "Finbar Dunne", photo: "assets/finbar.png" },
     },
     {
       id: 8,
@@ -409,17 +422,47 @@ export class House {
       },
       address: "Shielbaggan, Ramsgrange, Co. Wexford, Y34 YP44",
       agent: { name: "Cara Reilly", photo: "assets/cara.png" },
-    },
-  ];
+    }, 
+  ];*/
 
   // Return all properties
-  getHouses() {
+  // getHouses() {
+  //   return this.houses;
+  // }
+  
+  async getHouses(){
+    this.houses = [];
+      let _this = this;
+      const querySnapshot = await getDocs(collection(this.db, "house"));
+      querySnapshot.forEach((doc) => {
+      let houseData: any = doc.data();
+      houseData.id = doc.id;
+      _this.houses.push(houseData);
+    });
     return this.houses;
+    
+    
   }
 
+  
+
   // Return a single property by ID
-  getHouseById(id: number) {
-    return this.houses.find(h => h.id === id);
+  // getHouseById(id: number) {
+  //   return this.houses.find(h => h.id === id);
+  // }
+
+  async getHouseById(id: string) {
+  const docRef = doc(this.db, "house", id);   
+  const docSnap = await getDoc(docRef);
+
+  if (!docSnap.exists()) {
+    return null;
   }
+
+  return { id: docSnap.id, ...docSnap.data() };
+}
+
+
+ 
   
 }

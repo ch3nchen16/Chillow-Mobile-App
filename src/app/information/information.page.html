@@ -1,5 +1,4 @@
-@if (house) {
-<ion-content class="info-content">
+<ion-content class="info-content" *ngIf="house">
   <ion-fab vertical="top" horizontal="start" slot="fixed">
     <!-- <div class="fab-label">Exit</div> -->
     <ion-fab-button [routerLink]="['/tabs/tab1']">
@@ -9,13 +8,12 @@
   <!--swiper for carousel-->
   <swiper-container slides-per-view="1" pagination="true" navigation="true">
     <!--navigation adds the arrows-->
-    @for (img of house.content; track img) {
-    <swiper-slide>
+
+    <swiper-slide *ngFor="let img of house.content">
       <!--loops through house's content array-->
       <img [src]="img.url" alt="House image" />
       <!--displays each image-->
     </swiper-slide>
-    }
   </swiper-container>
 
   <h1 class="price">€{{ house.description.price | number }}</h1>
@@ -49,9 +47,8 @@
       </ion-item>
       <div class="ion-padding" slot="content">
         <ul>
-          @for (item of house.description.interior; track item) {
-          <li>{{ item }}</li>
-          }
+          <li *ngFor="let item of house.description.interior">{{ item }}</li>
+
           <!--loops through interior features array-->
         </ul>
       </div>
@@ -63,9 +60,7 @@
       </ion-item>
       <div class="ion-padding" slot="content">
         <ul>
-          @for (item of house.description.property; track item) {
-          <li>{{ item }}</li>
-          }
+          <li *ngFor="let item of house.description.property">{{ item }}</li>
         </ul>
       </div>
     </ion-accordion>
@@ -76,9 +71,7 @@
       </ion-item>
       <div class="ion-padding" slot="content">
         <ul>
-          @for (item of house.description.transport; track item) {
-          <li>{{ item }}</li>
-          }
+          <li *ngFor="let item of house.description.transport">{{ item }}</li>
         </ul>
       </div>
     </ion-accordion>
@@ -95,4 +88,3 @@
     >
   </div>
 </ion-content>
-}

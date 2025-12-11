@@ -33,11 +33,14 @@ export class InformationPage implements OnInit {
     private houseService: House
   ) {}
 
-  ngOnInit() {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
+  async ngOnInit() {
+    // const id = Number(this.route.snapshot.paramMap.get('id'));
     //gets id from url then converts it to a number
-    this.house = this.houseService.getHouseById(id);
+    // this.house = this.houseService.getHouseById(String(id));
     //gets a house object matching the id
+    const id = this.route.snapshot.paramMap.get('id');
+    this.house = await this.houseService.getHouseById(id!);
+    console.log('Loaded house:', this.house);
   }
 }
 

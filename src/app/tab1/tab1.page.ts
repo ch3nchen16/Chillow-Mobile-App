@@ -18,8 +18,8 @@ export class Tab1Page implements OnInit{
 
   constructor(private houseService: House) {}
 
-  ngOnInit() {
-    this.houses = this.houseService.getHouses();
+  async ngOnInit() {
+    this.houses = await this.houseService.getHouses();
   }
 }
   
