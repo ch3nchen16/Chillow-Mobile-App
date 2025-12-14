@@ -4,6 +4,7 @@ A real-estate housing mobile application
 
 ### 1. Project Set Up in Google Cloud Console
 1. I created a new project called Chillow-Mobile-App
+
 **Steps:** In the top left corner of the Google Cloud Console click **“Select a project” → “New project”**.  
    Take note of the **Project ID** (for example my ID: `chillow-mobile-app-480708`).
 2. Set project ID as default:
@@ -13,6 +14,7 @@ A real-estate housing mobile application
 For example in VS Code: gcloud config set project chillow-mobile-app-480708
 
 3. Make sure billing is enabled
+
 **Steps:** In the top left corner of the Google Cloud Console click **Navigation Menu (3 horizontal lines) → “Billing” (link to a billing account if you still haven't)**.
 ### 2. Enable Services
 This app uses:
