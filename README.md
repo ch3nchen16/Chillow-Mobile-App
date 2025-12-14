@@ -11,6 +11,7 @@ A real-estate housing mobile application
    gcloud config set project your-project-id
    ```
 For example in VS Code: gcloud config set project chillow-mobile-app-480708
+
 3. Make sure billing is enabled
 **Steps:** In the top left corner of the Google Cloud Console click **Navigation Menu (3 horizontal lines) → “Billing” (link to a billing account if you still haven't)**.
 ### 2. Enable Services
