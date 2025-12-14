@@ -12,7 +12,7 @@ A real-estate housing mobile application
    ```
 For example in VS Code: gcloud config set project chillow-mobile-app-480708
 3. Make sure billing is enabled
-Steps: go to the navigation menu (top left corner) then click billing
+**Steps:** In the top left corner of the Google Cloud Console click **Navigation Menu (3 horizontal lines) → “Billing” (link to a billing account if you still haven't)**.
 ### 2. Enable Services
 This app uses:
 - **Google App Engine API** for deployment  
