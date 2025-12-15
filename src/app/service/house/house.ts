@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'; //decorator 
-import { collection, doc, getDoc, getDocs, addDoc } from "firebase/firestore"; 
+import { collection, where, getDocs, addDoc } from "firebase/firestore"; 
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 import { environment } from 'src/environments/environment';
@@ -471,6 +471,18 @@ export class House {
   //   } catch (e) {
   //     console.error("Error adding document: ", e);
   //  }
+
+  async bookViewing(bookingData: any) {
+    try{
+      const docRef = await addDoc(collection(this.db, 'viewings'), bookingData);
+      console.log('Viewing saved with ID:', docRef.id);
+      return { success: true, id: docRef.id };
+    }catch (error) {
+      console.error('Error saving viewing:', error);
+      return { success: false, error };
+    }
+  }
+
 
   
 }

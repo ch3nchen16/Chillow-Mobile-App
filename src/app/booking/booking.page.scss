@@ -12,12 +12,28 @@
         text-align: center;
     }
 
-    .booking-title {
+    .booking-title{
         font-size: clamp(24px, 8vw, 48px);  //clamp for responsiveness, 24px min, 8vh preferred, 48px max
         color: #FFA4A4;
         margin-top: 6vh;
         position: relative;
         text-align: center;
+    }
+
+    .viewing-for{
+        font-size: clamp(24px, 6vw, 48px);  
+        color: #FFA4A4;
+        position: relative;
+        text-align: center;
+    }
+
+    .address{
+        margin-top: 2vh;
+        display: inline-block; 
+        font-size: 1.1rem;
+        position: relative;
+        text-align: center;
+        color: #403e3f;
     }
 
     a{

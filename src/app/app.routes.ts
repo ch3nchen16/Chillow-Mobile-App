@@ -5,7 +5,7 @@ export const routes: Routes = [
   {
     path: '',
     redirectTo: 'landing',
-    pathMatch: 'full' // Ensures exact match on root path
+    pathMatch: 'full' 
   },
   {
     path: 'login',
