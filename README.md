@@ -29,7 +29,7 @@ You can run these commands:
    ```
 ### 3. Build the App
    ```bash
-   ionic build --prod
+   ionic build
    ```
 We need this because App Engine only serves static files (for example: www/index.html).
 It creates www/ folder which is the standard location for app.yaml to find static files.
