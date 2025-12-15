@@ -40,7 +40,6 @@ export class InformationPage implements OnInit {
     //gets a house object matching the id
     const id = this.route.snapshot.paramMap.get('id');
     this.house = await this.houseService.getHouseById(id!);
-    console.log('Loaded house:', this.house);
   }
 }
 

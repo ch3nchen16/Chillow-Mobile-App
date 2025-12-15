@@ -20,6 +20,7 @@ export class House {
 
   //array of houses containing multiple objects
   private houses: any[] = [];
+  private viewings: any[] = []; //internal viewings array
   /*= [ 
     {
       //id object
@@ -475,13 +476,27 @@ export class House {
   async bookViewing(bookingData: any) {
     try{
       const docRef = await addDoc(collection(this.db, 'viewings'), bookingData);
-      console.log('Viewing saved with ID:', docRef.id);
       return { success: true, id: docRef.id };
     }catch (error) {
-      console.error('Error saving viewing:', error);
       return { success: false, error };
     }
   }
+
+  async getAllViewings() {
+    this.viewings = [];                
+    const querySnapshot = await getDocs(collection(this.db, 'viewings'));
+    querySnapshot.forEach((doc) => {
+      const viewingData: any = doc.data();
+      viewingData.id = doc.id;         
+      this.viewings.push(viewingData);
+    });
+    return this.viewings;
+  }
+
+  getViewingsByUserId(userId: string) {
+    return this.viewings.filter((viewing: any) => viewing.userId === userId);
+  }
+
 
 
   

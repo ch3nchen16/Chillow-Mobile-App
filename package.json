@@ -1,4 +1,14 @@
 {
+  "name": "chillow",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "ng": "ng",
+    "start": "ionic serve",
+    "build": "ng build",
+    "test": "ng test",
+    "lint": "ng lint"
+  },
   "dependencies": {
     "@angular/animations": "21.0.4",
     "@angular/common": "21.0.4",

@@ -1,17 +1,16 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content>
+  <ion-list *ngIf="viewings.length; else noViewings">
+    <ion-item *ngFor="let v of viewings">
+      <ion-label>
+        <p>{{ v.houseAddress }}</p>
+        <p>{{ v.viewingDate }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <ng-template #noViewings>
+    <ion-text color="medium">
+      <p class="ion-padding">You have no viewings booked yet.</p>
+    </ion-text>
+  </ng-template>
 </ion-content>

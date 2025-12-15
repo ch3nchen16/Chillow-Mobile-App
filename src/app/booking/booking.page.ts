@@ -48,8 +48,8 @@ export class BookingPage implements OnInit {
       return;
     }
 
-
     const bookingData = {
+      houseAddress: this.houseAddress,  
       fullname: this.fullname,
       email: this.email,
       phone: this.phone,
