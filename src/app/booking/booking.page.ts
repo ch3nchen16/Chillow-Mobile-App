@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { House } from '../service/house/house'; //imports house service
 import { NgForm, FormsModule } from '@angular/forms';
-import { IonContent, IonItem, IonIcon, IonDatetime, IonButton, IonInput, ToastController } from '@ionic/angular/standalone';
+import { IonContent, IonItem, IonIcon, IonDatetime, IonButton, IonInput, ToastController, IonFab, IonFabButton } from '@ionic/angular/standalone';
 import { RouterModule } from '@angular/router';
 import { Identity } from '../service/identity/identity';
 import { CommonModule } from '@angular/common';
@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './booking.page.html',
   styleUrls: ['./booking.page.scss'],
   standalone: true,
-  imports: [IonContent, FormsModule, RouterModule, IonIcon, IonItem, IonDatetime, IonButton, IonInput, CommonModule]
+  imports: [IonContent, FormsModule, RouterModule, IonIcon, IonItem, IonDatetime, IonButton, IonInput, CommonModule, IonFab, IonFabButton]
 })
 export class BookingPage implements OnInit {
 

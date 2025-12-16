@@ -18,11 +18,12 @@ export class Tab2Page {
   constructor(private houseService: House, private identity: Identity) {}
 
   async ionViewWillEnter() {
+    
     await this.displayViewings(); //calls displayViewings 
   }
 
   async displayViewings() {
-    const user = this.identity.getCurrentUser(); //gets the currently logged in user 
+    const user = this.identity.getCurrentUser(); //gets the currently logged in user from identity service
     if (!user) {         //if there is no user
       this.viewings = []; //viewings set to empty array - no viewings
       return;

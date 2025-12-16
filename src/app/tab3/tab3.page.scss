@@ -1,0 +1,58 @@
+:host{
+    .app-post-content{
+        --background: #FCF9EA; //-- lets you break through Ionic's shadow DOM
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;        
+    }
+
+    .addPost-title{
+        margin-bottom: 4vh;
+        font-size: clamp(24px, 8vw, 48px);  //clamp for responsiveness, 24px min, 8vh preferred, 48px max
+        color: #FFA4A4;
+        margin-top: 6vh;
+        position: relative;
+        text-align: center;
+    }
+
+    ion-item{
+        --background: #BADFDB;
+        margin: 2vh auto;
+        width: 80vw;
+        max-width: 500px;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+    }
+
+    .input{
+        font-size: clamp(12px, 1.1rem, 40px);
+        width: 100%;
+    }
+
+    .addPost-container{
+        text-align: center;
+    }
+
+    .add-btn{
+        display: flex;
+        justify-content: center;  //centers horizontally
+        margin-top: 2rem; 
+        margin-bottom: 1rem; 
+
+        ion-button{
+            font-size: clamp(0.9rem, 1.2rem, 1.5rem);
+            --border-radius: 6vh;
+            --background: #FFBDBD;
+            --background-activated: #BADFDB;
+            --color: #403e3f;
+            width: 80vw;
+            max-width: 500px;
+            border-radius: 6vh; //have to add this so that the box shadow is rounded too
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+           
+        }
+    }
+
+    
+}

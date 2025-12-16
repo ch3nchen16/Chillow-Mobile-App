@@ -1,17 +1,165 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content [fullscreen]="true" class="app-post-content">
+  <div class="addPost-container">
+    <h1 class="addPost-title">Add A House Listing</h1>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <form #houseForm="ngForm" (ngSubmit)="onAddPost(houseForm)">
+      <!-- Basic Info -->
+      <ion-item>
+        <ion-input
+          label="House Address"
+          [(ngModel)]="address"
+          id="address"
+          name="address"
+          labelPlacement="floating"
+          placeholder="Full address and eircode"
+          required
+        >
+        </ion-input>
+      </ion-item>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+      <ion-item>
+        <ion-input
+          type="number"
+          label="Price in Euro"
+          labelPlacement="floating"
+          [(ngModel)]="price"
+          id="price"
+          name="price"
+          placeholder="ex. 450000"
+          required
+        >
+        </ion-input>
+      </ion-item>
+
+      <!-- Description Numbers -->
+      <ion-item>
+        <ion-input
+          type="number"
+          label="Area (m²)"
+          labelPlacement="floating"
+          [(ngModel)]="area"
+          id="area"
+          name="area"
+          placeholder="ex. 72"
+        >
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input
+          type="number"
+          label="Beds"
+          labelPlacement="floating"
+          [(ngModel)]="beds"
+          placeholder="ex. 3"
+          id="beds"
+          name="beds"
+        >
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input
+          type="number"
+          label="Bathrooms"
+          labelPlacement="floating"
+          [(ngModel)]="bathrooms"
+          placeholder="ex. 3"
+          id="bathrooms"
+          name="bathrooms"
+        >
+        </ion-input>
+      </ion-item>
+
+      <!-- Agent -->
+      <ion-item>
+        <ion-input
+          label="Agent Name"
+          [(ngModel)]="agent.name"
+          id="agentName"
+          name="agentName"
+          labelPlacement="floating"
+          placeholder="ex. John Doe"
+        >
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input
+          label="Agent Photo URL"
+          labelPlacement="floating"
+          [(ngModel)]="agent.photo"
+          id="agentPhoto"
+          name="agentPhoto"
+          placeholder="ex. agent.jpg"
+        >
+        </ion-input>
+      </ion-item>
+
+      <!-- Content Images -->
+      <ion-item>
+        <ion-textarea
+          label="Images (one URL per line)"
+          labelPlacement="floating"
+          [(ngModel)]="content"
+          id="content"
+          name="content"
+          placeholder="ex. house1layout.jpg"
+        >
+        </ion-textarea>
+      </ion-item>
+
+      <!-- Arrays: Interior, Property, Transport -->
+      <ion-item>
+        <ion-textarea
+          label="Interior Features (one per line)"
+          labelPlacement="floating"
+          [(ngModel)]="interior"
+          id="interior"
+          name="interior"
+          placeholder="ex. Heating: Natural Gas"
+        >
+        </ion-textarea>
+      </ion-item>
+
+      <ion-item>
+        <ion-textarea
+          label="Property Features (one per line)"
+          labelPlacement="floating"
+          [(ngModel)]="property"
+          id="property"
+          name="property"
+          placeholder="ex. Parking: Garage, on Street"
+        >
+        </ion-textarea>
+      </ion-item>
+
+      <ion-item>
+        <ion-textarea
+          label="Transport (one per line)"
+          labelPlacement="floating"
+          [(ngModel)]="transport"
+          id="transport"
+          name="transport"
+          placeholder="ex. 5 min walk to bus stop"
+        >
+        </ion-textarea>
+      </ion-item>
+
+      <!-- Special Description -->
+      <ion-item>
+        <ion-textarea
+          label="Special Description"
+          labelPlacement="floating"
+          [(ngModel)]="special"
+          id="special"
+          name="special"
+        >
+        </ion-textarea>
+      </ion-item>
+      <div class="add-btn">
+        <ion-button type="submit">ADD HOUSE</ion-button>
+      </div>
+    </form>
+  </div>
 </ion-content>
