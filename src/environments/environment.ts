@@ -14,7 +14,7 @@ export const environment = {
   appId: "1:540416047833:web:5703267283fb04e409dcc8"
   },
 
-  googleMapsApiKey: 'AIzaSyC8j-60KTekzVzow7YCSQjsFl_SbC2ZNBI' 
+  googleMapsApiKey: 'AIzaSyBC_AOz0bdimLoSUhx_IAUghNqCSYFOYqI' 
 };
 
 /*
