@@ -10,8 +10,6 @@ import { environment } from 'src/environments/environment';
 })
 
 
-
-
 export class House {
   //holds the data for the houses
   //Initialize Firebase
@@ -36,8 +34,9 @@ export class House {
     
   }
 
-
-  getHouseById(id: string) {
+  async getHouseById(id: string) {
+    if(this.houses.length == 0)
+      await this.getHouses();
     return this.houses.find((house: any) => house.id == id);
   }
 

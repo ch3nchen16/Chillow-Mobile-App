@@ -90,4 +90,8 @@
     >
     <!-- state is like passing a note, it passes the house id and address during navigation -->
   </div>
+
+  <google-map height="400px" width="100%" [center]="getPosition()" [zoom]="15">
+    <map-marker [position]="getPosition()"></map-marker>
+  </google-map>
 </ion-content>

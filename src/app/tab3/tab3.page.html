@@ -157,6 +157,34 @@
         >
         </ion-textarea>
       </ion-item>
+
+      <ion-item>
+        <ion-input
+          type="number"
+          label="Latitude"
+          [(ngModel)]="lat"
+          id="lat"
+          name="lat"
+          labelPlacement="floating"
+          placeholder="ex. 53.2876"
+          required
+        >
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input
+          type="number"
+          label="Longitude"
+          [(ngModel)]="lng"
+          id="lng"
+          name="lng"
+          labelPlacement="floating"
+          placeholder="ex. -53.2876"
+          required
+        >
+        </ion-input>
+      </ion-item>
       <div class="add-btn">
         <ion-button type="submit">ADD HOUSE</ion-button>
       </div>

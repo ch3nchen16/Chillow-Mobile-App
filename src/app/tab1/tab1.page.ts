@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core'; //imported OnInit
 import { IonContent } from '@ionic/angular/standalone';
 import { HouseComponent } from '../components/house/house.component';
-
 import { House } from '../service/house/house';
 import { RouterModule } from '@angular/router';
 

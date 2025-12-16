@@ -28,6 +28,9 @@ export class Tab3Page {
   property = '';       
   transport = '';  
 
+  lat: number | null = null;
+  lng: number | null = null;
+
   constructor(private houseService: House, private toastCtrl: ToastController ) {}
 
   async onAddPost(form: NgForm) {
@@ -58,17 +61,19 @@ export class Tab3Page {
           .map(s => s.trim())
           .filter(Boolean),
       
-      price: this.price,
-      property: this.property
-        .split('\n')
-        .map(s => s.trim())
-        .filter(Boolean),
-      special: this.special,
-      transport: this.transport
-        .split('\n')
-        .map(s => s.trim())
-        .filter(Boolean),
-      }
+        price: this.price,
+        property: this.property
+          .split('\n')
+          .map(s => s.trim())
+          .filter(Boolean),
+        special: this.special,
+        transport: this.transport
+          .split('\n')
+          .map(s => s.trim())
+          .filter(Boolean),
+      },
+      lat: this.lat,
+      lng: this.lng
   };
 
   const result = await this.houseService.addPost(houseData);
@@ -95,8 +100,10 @@ export class Tab3Page {
     this.interior = '';
     this.property = '';
     this.transport = '';
+    this.lat = null;
+    this.lng = null;
   }
-  
+
   private async showToast(message: string, color: 'success' | 'danger') {
     const toast = await this.toastCtrl.create({
       message,

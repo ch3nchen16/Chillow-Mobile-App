@@ -12,7 +12,9 @@ export const environment = {
   storageBucket: "chillow-904d4.firebasestorage.app",
   messagingSenderId: "540416047833",
   appId: "1:540416047833:web:5703267283fb04e409dcc8"
-  }
+  },
+
+  googleMapsApiKey: 'AIzaSyC8j-60KTekzVzow7YCSQjsFl_SbC2ZNBI' 
 };
 
 /*
