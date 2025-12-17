@@ -33,7 +33,7 @@ This app uses:
   gcloud services enable firestore.googleapis.com
   gcloud services enable identitytoolkit.googleapis.com
   ```
-
+You can also check in the Google Cloud Console to see if they are enabled.
 ### 3. Initialise App Engine
 
 ```bash
