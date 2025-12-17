@@ -5,7 +5,8 @@ steps:
     args: ["install"] #arguments passed to entrypoint = npm install
 
   # Step 2: Ionic build (creates www/ folder)
-  - name: "gcr.io/cloud-builders/npm" #tells cloud build to run Google's official npm builder image
+  - name: "node:22" #tells cloud build to run Google's official npm builder image
+    entrypoint: "npm"
     args: ["run", "build"] # runs npm run build -> npm looks up build script in package.json ("build": "ng build") and runs it
     #this creates the www/ folder with files for app engine to deploy. #why do we need this?, ionic source code is not "browser-ready",
     #this compiles the typescript, SCSS, etc. files to browser-ready HTML, CSS and JS files for app engine to deploy
