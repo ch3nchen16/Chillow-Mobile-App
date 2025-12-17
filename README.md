@@ -49,9 +49,9 @@ app.yaml tells App Engine how to run and serve the app.
 ```yaml
 # app.yaml defines how app is run such as handling requests for app deployment for app engine
 runtime: nodejs24 #latest version - tells which runtine env to use. Ensures env where Node.js is installed
-env: standard # uses standard environment, suitable for simple apps like this. Can run for free, scales to 0 instances when there is no traffic
 instance_class: F1 # determines memory and CPU resources and auto scaling. Lowest memory and CPU limit (ex 256 MB memory limit)
 # This is only a college project so F1 is suitable, this also keeps costs minimal
+env: standard # uses standard environment, suitable for simple apps like this. Can run for free, scales to 0 instances when there is no traffic
 service: default #specifies which service the configuration runs on, default = main service for the project
 
 # defines routing (how app eng serves files when users visit URLs). Tells how to handle incoming HTTP requests
