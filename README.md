@@ -145,3 +145,8 @@ This will run all the steps: npm install, ng build, gcloud app deploy.
 ```bash
 gcloud app browse
 ```
+### 8. Check logs
+
+```bash
+gcloud app logs tail -s default
+```
