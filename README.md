@@ -3,43 +3,49 @@
 A real-estate housing mobile application
 
 ### 1. Project Set Up in Google Cloud Console
+
 1. I created a new project called Chillow-Mobile-App
 
 **Steps:** In the top left corner of the Google Cloud Console click **“Select a project” → “New project”**.  
-   Take note of the **Project ID** (for example my ID: `chillow-mobile-app-480708`).
-2. Set project ID as default:
-   ```bash
-   gcloud config set project your-project-id
-   ```
+ Take note of the **Project ID** (for example my ID: `chillow-mobile-app-480708`). 2. Set project ID as default:
+
+```bash
+gcloud config set project your-project-id
+```
+
 For example in VS Code: gcloud config set project chillow-mobile-app-480708
 
 3. Make sure billing is enabled
 
 **Steps:** In the top left corner of the Google Cloud Console click **Navigation Menu (3 horizontal lines) → “Billing” (link to a billing account if you still haven't)**.
+
 ### 2. Enable Services
+
 This app uses:
-- **Google App Engine API** for deployment  
-- **Cloud Firestore API** for the database  
+
+- **Google App Engine API** for deployment
+- **Cloud Firestore API** for the database
 - **Identity Toolkit API** (Identity Platform / Firebase Auth) for authentication  
-You can run these commands:
-   ```bash
-   gcloud services enable appengine.googleapis.com
-   gcloud services enable firestore.googleapis.com
-   gcloud services enable identitytoolkit.googleapis.com
-   ```
-### 3. Build the App
-   ```bash
-   ionic build
-   ```
-We need this because App Engine only serves static files (for example: www/index.html).
-It creates www/ folder which is the standard location for app.yaml to find static files.
-### 4. Initialise App Engine
-   ```bash
-   gcloud app create --region=europe-west2
-   ```
-### 5. Configure app.yaml
+  You can run these commands:
+  ```bash
+  gcloud serviced enable cloudbuild.googleapis.com
+  gcloud services enable appengine.googleapis.com
+  gcloud services enable firestore.googleapis.com
+  gcloud services enable identitytoolkit.googleapis.com
+  ```
+
+### 3. Initialise App Engine
+
+```bash
+gcloud app create --region=europe-west2
+```
+
+### 4. Configure app.yaml
+
 app.yaml tells App Engine how to run and serve the app.
+
 1. Create a file called app.yaml in the root of the project.
+
 ```yaml
 # app.yaml defines how app is run such as handling requests for app deployment for app engine
 runtime: nodejs24 #latest version - tells which runtine env to use. Ensures env where Node.js is installed
@@ -77,11 +83,63 @@ automatic_scaling: #automatically adjusts number of instances based on traffic
 env_variables:
   NODE_ENV: production
 ```
-### 6. Deploy The App
-```bash
-gcloud app deploy
+
+### 5. Configure cloudbuild.yaml
+
+Cloud Build Service allows you to execute your builds on Google Cloud
+
+1. Create a cloudbuild.yaml file in the root of your app.
+
+```yaml
+steps:
+  # Step 1: Install dependencies
+  - name: "node:22" #tells cloud build to run this step in Docker's node 22 image. This image comes with Node.js and nom installed so no need to install
+    entrypoint: "npm" #when container starts run npm
+    args: ["install"] #arguments passed to entrypoint = npm install
+
+  # Step 2: ng build (creates www/ folder)
+  - name: "node:22"
+    entrypoint: "npm"
+    args: ["run", "build"] # runs npm run build -> npm looks up build script in package.json ("build": "ng build") and runs it
+    #this creates the www/ folder with files for app engine to deploy. #why do we need this?, ionic source code is not "browser-ready",
+    #this compiles the typescript, SCSS, etc. files to browser-ready HTML, CSS and JS files for app engine to deploy
+
+  # Step 3: Deploy to Google App Engine
+  - name: "gcr.io/cloud-builders/gcloud" #tells cloud build to run Google's official cloud build builder image for gcloud CLI
+    args: ["app", "deploy", "--quiet"] #--quiet disables prompts for ex ... Continue? (y/N)
+    #runs gcloud app deploy which looks for app.yaml (blueprint for running and serving the app)
+
+options:
+  logging: CLOUD_LOGGING_ONLY #tells cloud build to send all build logs only to Cloud Logging (GCP Log Service)
+timeout: "900s" #15 mins - if build takes longer than 15 mins, cloud build will stop it and mark it as failed. (note: build = when the source
+# code is being prepared for deployment )
 ```
-Then validate deployment
+
+Note: In package.json file make sure it has "build": "ng build"!
+ng build creates www/ folder which is the standard location for app.yaml to find static files.
+Why do we need this?
+Answer: App Engine serves "browser-ready" files (for example: www/index.html). ng build turns the source code (typescript files, scss) into "browser-ready" (HTML, CSS, Javascript) files which App Engine can then find in www/ folder and deploy it on the browser.
+
+### 5. Add .angular/cache in the .cloudignore file
+
+I received an error because too many files were in my .angular/cache directory. To fix this I added it to .cloudignore because we don't need this for deployment.
+
+### 6. Run Cloud Build
+
+```bash
+gcloud builds submit --config cloudbuild.yaml .
+```
+
+--config cloudbuild.yaml :specifies the build configuration file to use and the dot at the end just means in this current directory.
+This will run all the steps: npm install, ng build, gcloud app deploy.
+
+## (Optional). Create a Trigger For Cloud Build so that it starts to run when you do git push
+
+1. **“Cloud Build” → “Triggers” → “Create Trigger”**
+2. Select these options **“Event: Push to branch” → “Source: Cloud Build Repositories” → “Repository Generation: 1st Gen” → “Configuration: Cloud Build configuration file (yaml or json), Location: Repository, Cloud Build configuration file location: cloudbuild.yaml”**
+
+### 7. Visit your deployed app on the browser to validate deployment
+
 ```bash
 gcloud app browse
 ```
