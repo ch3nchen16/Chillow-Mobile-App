@@ -39,6 +39,7 @@ You can also check in the Google Cloud Console to see if they are enabled.
 ```bash
 gcloud app create --region=europe-west2
 ```
+This creates a new app engine application in the project and specifies where it will live.
 
 ### 4. Configure app.yaml
 
@@ -47,11 +48,12 @@ app.yaml tells App Engine how to run and serve the app.
 1. Create a file called app.yaml in the root of the project.
 
 ```yaml
-# app.yaml defines how app is run such as handling requests for app deployment for app engine
-runtime: nodejs24 #latest version - tells which runtine env to use. Ensures env where Node.js is installed
+# app.yaml defines how the app is run such as handling requests for app deployment
+runtime: nodejs24 #latest version - tells which runtime env to use. NodeJs = Open source Javascript environment.
+#runtime env = contains a collection of software services and resources for example memory allocation to support the project's execution.
 instance_class: F1 # determines memory and CPU resources and auto scaling. Lowest memory and CPU limit (ex 256 MB memory limit)
 # This is only a college project so F1 is suitable, this also keeps costs minimal
-env: standard # uses standard environment, suitable for simple apps like this. Can run for free, scales to 0 instances when there is no traffic
+env: standard # uses standard environment, suitable for simple apps like this. Can run for free, scales to 0 instances when there is no traffic. (Other environment type is 'flexible' which is more suited for complex projects (more costs as its minimum number of instances is 1)).
 service: default #specifies which service the configuration runs on, default = main service for the project
 
 # defines routing (how app eng serves files when users visit URLs). Tells how to handle incoming HTTP requests
