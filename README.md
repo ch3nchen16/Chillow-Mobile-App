@@ -150,3 +150,7 @@ gcloud app browse
 ```bash
 gcloud app logs tail -s default
 ```
+Logs: 
+2025-12-17 18:01:27 default[20251217t174807]  "GET /676.a06f8992621c0155.js HTTP/1.1" 200
+2025-12-17 18:01:27 default[20251217t174807]  "GET /assets/icon/favicon.png HTTP/1.1" 200
+These are HTTP Request Logs: default = default service that we specified in app.yaml. It is requesting for JS file. 200 is the HTTP status code for 'OK'
