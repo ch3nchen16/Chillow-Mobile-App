@@ -122,35 +122,25 @@ ng build creates www/ folder which is the standard location for app.yaml to find
 Why do we need this?
 Answer: App Engine serves "browser-ready" files (for example: www/index.html). ng build turns the source code (typescript files, scss) into "browser-ready" (HTML, CSS, Javascript) files which App Engine can then find in www/ folder and deploy it on the browser.
 
-### 5. Add .angular/cache in the .cloudignore file
+### 6. Add .angular/cache in the .cloudignore file
 
 I received an error because too many files were in my .angular/cache directory. To fix this I added it to .cloudignore because we don't need this for deployment.
 
-### 6. Run Cloud Build
-
-```bash
-gcloud builds submit --config cloudbuild.yaml .
-```
-
---config cloudbuild.yaml :specifies the build configuration file to use and the dot at the end just means in this current directory.
-This will run all the steps: npm install, ng build, gcloud app deploy.
-
-## (Optional). Create a Trigger For Cloud Build so that it starts to run when you do git push
+### 7. Create a Trigger For Cloud Build so that it starts to run when you do git push
 
 1. **“Cloud Build” → “Triggers” → “Create Trigger”**
 2. Select these options **“Event: Push to branch” → “Source: Cloud Build Repositories” → “Repository Generation: 1st Gen” → “Configuration: Cloud Build configuration file (yaml or json), Location: Repository, Cloud Build configuration file location: cloudbuild.yaml”**
 
-### 7. Visit your deployed app on the browser to validate deployment
+### 8. Visit your deployed app on the browser to validate deployment
 
 ```bash
 gcloud app browse
 ```
-### 8. Check logs
+### 9. Check logs
 
 ```bash
 gcloud app logs tail -s default
 ```
 Logs: 
 2025-12-17 18:01:27 default[20251217t174807]  "GET /676.a06f8992621c0155.js HTTP/1.1" 200
-2025-12-17 18:01:27 default[20251217t174807]  "GET /assets/icon/favicon.png HTTP/1.1" 200
 These are HTTP Request Logs: default = default service that we specified in app.yaml. It is requesting for JS file. 200 is the HTTP status code for 'OK'
