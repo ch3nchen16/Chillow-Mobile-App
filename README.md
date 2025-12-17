@@ -28,7 +28,7 @@ This app uses:
 - **Identity Toolkit API** (Identity Platform / Firebase Auth) for authentication  
   You can run these commands:
   ```bash
-  gcloud serviced enable cloudbuild.googleapis.com
+  gcloud services enable cloudbuild.googleapis.com
   gcloud services enable appengine.googleapis.com
   gcloud services enable firestore.googleapis.com
   gcloud services enable identitytoolkit.googleapis.com
