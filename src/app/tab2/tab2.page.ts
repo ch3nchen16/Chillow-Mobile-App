@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonContent, IonList, IonItem, IonLabel, IonText } from '@ionic/angular/standalone';
+import { IonContent, IonText, IonGrid, IonCol, IonRow } from '@ionic/angular/standalone';
 import { CommonModule} from '@angular/common';
 // import { ExploreContainerComponent } from '../explore-container/explore-container.component';
 import { House } from '../service/house/house'; //imports house service
@@ -9,7 +9,7 @@ import { Identity } from '../service/identity/identity'; //import identity servi
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss'],
-  imports: [IonContent, IonList, IonItem, IonLabel, IonText, CommonModule]
+  imports: [IonContent, IonText, CommonModule, IonGrid, IonCol, IonRow]
 })
 export class Tab2Page {
 

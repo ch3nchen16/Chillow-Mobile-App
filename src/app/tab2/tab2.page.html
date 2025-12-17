@@ -1,12 +1,15 @@
-<ion-content>
-  <ion-list *ngIf="viewings.length; else noViewings">
-    <ion-item *ngFor="let v of viewings">
-      <ion-label>
-        <p>{{ v.houseAddress }}</p>
-        <p>{{ v.viewingDate }}</p>
-      </ion-label>
-    </ion-item>
-  </ion-list>
+<ion-content class="viewings-content">
+  <h1 class="booking-title">All Booked Viewings</h1>
+  <ng-container *ngIf="viewings.length; else noViewings">
+    <ion-grid>
+      <ion-row *ngFor="let v of viewings" class="ion-padding-vertical">
+        <ion-col size-md="6"> <p>{{ v.houseAddress }}</p> </ion-col>
+        <ion-col size-md="6">
+          <p>{{ v.viewingDate | date:'EEE, d MMM yyyy, h:mm a'}}</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ng-container>
 
   <ng-template #noViewings>
     <ion-text color="medium">

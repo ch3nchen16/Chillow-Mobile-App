@@ -14,12 +14,22 @@
             
         }
     }
+    
+    ion-fab {
+        display: flex;  //centers the labels for login & register
+        flex-direction: column;
+        align-items: center;  
+    }
 
     .fab-label{
         color: #403e3f;
+        font-size: clamp(12px, 4vw, 1.3rem);
+    
+        
     }
+
     .landing-title {
-        font-size: clamp(24px, 10vw, 60px); //24px = min, 8vw = preferred, 48px = max
+        font-size: clamp(24px, 8vw, 3.4rem); //24px = min, 8vw = preferred, 3.4rem = max
         color: #FFA4A4;
         margin-top: 6vh;
         position: relative;

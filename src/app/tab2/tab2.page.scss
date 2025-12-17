@@ -1,0 +1,21 @@
+:host {
+    .booking-title{
+        font-size: clamp(24px, 8vw, 48px);  //clamp for responsiveness, 24px min, 8vh preferred, 48px max
+        color: #FFA4A4;
+        margin-top: 6vh;
+        position: relative;
+        text-align: center;
+    }
+    .viewings-content{
+        --background: #FCF9EA;
+    }
+    ion-col {
+        background-color: #BADFDB;
+        border: solid 1px #FFA4A4;
+        text-align: center;
+    }
+    p{
+        font-size: clamp(12px, 4vw, 1.5rem);
+        color: #403e3f;
+    }
+}

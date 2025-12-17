@@ -1,0 +1,21 @@
+steps:
+  # Step 1: Install dependencies
+  - name: "node:22" #tells cloud build to run this step in Docker's node 22 image. This image comes with Node.js and nom installed so no need to install
+    entrypoint: "npm" #when container starts run npm
+    args: ["install"] #arguments passed to entrypoint = npm install
+
+  # Step 2: Ionic build (creates www/ folder)
+  - name: "gcr.io/cloud-builders/npm" #tells cloud build to run Google's official npm builder image
+    args: ["run", "build"] # runs npm run build -> npm looks up build script in package.json ("build": "ionic build") and runs it
+    #this creates the www/ folder with files for app engine to deploy. #why do we need this?, ionic source code is not "browser-ready",
+    #this compiles the typescript, SCSS, etc. files to browser-ready HTML, CSS and JS files for app engine to deploy
+
+  # Step 3: Deploy to Google App Engine
+  - name: "gcr.io/cloud-builders/gcloud" #tells cloud build to run Google's official cloud build builder image for gcloud CLI
+    args: ["app", "deploy", "--quiet"] #--quiet disables prompts for ex ... Continue? (y/N)
+    #runs gcloud app deploy which looks for app.yaml (blueprint for running and serving the app)
+
+options:
+  logging: CLOUD_LOGGING_ONLY #tells cloud build to send all build logs only to Cloud Logging (GCP Log Service)
+timeout: "900s" #15 mins - if build takes longer than 15 mins, cloud build will stop it and mark it as failed. (note: build = when the source
+# code is being prepared for deployment )

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { House } from '../service/house/house'; //imports house service
 import { NgForm, FormsModule } from '@angular/forms';
 import { IonContent, IonItem, IonIcon, IonDatetime, IonButton, IonInput, ToastController, IonFab, IonFabButton } from '@ionic/angular/standalone';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 import { Identity } from '../service/identity/identity';
 import { CommonModule } from '@angular/common';
 
@@ -25,7 +25,7 @@ export class BookingPage implements OnInit {
   
 
 
-  constructor(private identity: Identity, private houseService: House, private toastController: ToastController) { }
+  constructor(private identity: Identity, private houseService: House, private toastController: ToastController, private router: Router) { }
 
   ngOnInit() {
 
@@ -73,15 +73,21 @@ export class BookingPage implements OnInit {
   async showToast(message: string, color: 'success' | 'danger') {
     const toast = await this.toastController.create({
       message,
-      duration: 3000, //3 secs
+      duration: 5000, //5 secs
       color,
       position: 'top',
       buttons: [
-      {
-        text: 'Dismiss', //adds a dismiss button
-        role: 'cancel',
-      }
-    ]
+        {
+          text: 'View Booking',
+          handler: () => {
+          this.router.navigate(['/tabs/tab2']); 
+          },
+        },
+        {
+          text: 'Dismiss', //adds a dismiss button
+          role: 'cancel',
+        }
+      ]
     });
     await toast.present();
   }
