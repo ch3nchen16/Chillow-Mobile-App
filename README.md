@@ -22,7 +22,7 @@ For example in VS Code: gcloud config set project chillow-mobile-app-480708
 ### 2. Enable Services
 
 This app uses:
-
+- **Cloud Build API** to execute builds in Google Cloud
 - **Google App Engine API** for deployment
 - **Cloud Firestore API** for the database
 - **Identity Toolkit API** (Identity Platform / Firebase Auth) for authentication  
