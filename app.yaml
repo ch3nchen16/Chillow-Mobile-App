@@ -7,9 +7,9 @@ service: default #specifies which service the configuration runs on, default = m
 
 # defines routing (how app eng serves files when users visit URLs). Tells how to handle incoming HTTP requests
 handlers:
-  - url: /(.*\.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|map)) # matching any request with files ending with these
+  - url: /(.*\.(js|css|png|jpg)) # matching any request with files ending with these
     static_files: www/\1 # \1 references the first capture group which means it maps directly to the requested file name.
-    upload: www/.*\.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|map) # which files to include when uploading to app eng
+    upload: www/.*\.(js|css|png|jpg) # which files to include when uploading to app eng
 
   # any requests to /assets serves files from www/assets (serves directory intead of individual files)
   - url: /assets

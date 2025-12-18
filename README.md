@@ -22,23 +22,26 @@ For example in VS Code: gcloud config set project chillow-mobile-app-480708
 ### 2. Enable Services
 
 This app uses:
+
 - **Cloud Build API** to execute builds in Google Cloud
 - **Google App Engine API** for deployment
 - **Cloud Firestore API** for the database
 - **Identity Toolkit API** (Identity Platform / Firebase Auth) for authentication  
-  You can run these commands:
+   You can run these commands:
   ```bash
   gcloud services enable cloudbuild.googleapis.com
   gcloud services enable appengine.googleapis.com
   gcloud services enable firestore.googleapis.com
   gcloud services enable identitytoolkit.googleapis.com
   ```
-You can also check in the Google Cloud Console to see if they are enabled.
+  You can also check in the Google Cloud Console to see if they are enabled.
+
 ### 3. Initialise App Engine
 
 ```bash
 gcloud app create --region=europe-west2
 ```
+
 This creates a new app engine application in the project and specifies where it will live.
 
 ### 4. Configure app.yaml
@@ -58,9 +61,9 @@ service: default #specifies which service the configuration runs on, default = m
 
 # defines routing (how app eng serves files when users visit URLs). Tells how to handle incoming HTTP requests
 handlers:
-  - url: /(.*\.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|map)) # matching any request with files ending with these
+  - url: /(.*\.(js|css|png|jpg)) # matching any request with files ending with these
     static_files: www/\1 # \1 references the first capture group which means it maps directly to the requested file name.
-    upload: www/.*\.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|map) # which files to include when uploading to app eng
+    upload: www/.*\.(js|css|png|jpg) # which files to include when uploading to app eng
 
   # any requests to /assets serves files from www/assets (serves directory intead of individual files)
   - url: /assets
@@ -136,11 +139,13 @@ I received an error because too many files were in my .angular/cache directory. 
 ```bash
 gcloud app browse
 ```
+
 ### 9. Check logs
 
 ```bash
 gcloud app logs tail -s default
 ```
-Logs: 
-2025-12-17 18:01:27 default[20251217t174807]  "GET /676.a06f8992621c0155.js HTTP/1.1" 200
+
+Logs:
+2025-12-17 18:01:27 default[20251217t174807] "GET /676.a06f8992621c0155.js HTTP/1.1" 200
 These are HTTP Request Logs: default = default service that we specified in app.yaml. It is requesting for JS file. 200 is the HTTP status code for 'OK'
