@@ -112,7 +112,7 @@ steps:
   # Step 3: Deploy to Google App Engine
   - name: "gcr.io/cloud-builders/gcloud" #tells cloud build to run Google's official cloud build builder image for gcloud CLI
     args: ["app", "deploy", "--quiet"] #--quiet disables prompts for ex ... Continue? (y/N)
-    #runs gcloud app deploy which looks for app.yaml (blueprint for running and serving the app)
+    #runs gcloud app deploy which looks for app.yaml (blueprint for running and serving the app) to see handlers, runtime env, scaling and takes source code, packages them to build a container image.
 
 options:
   logging: CLOUD_LOGGING_ONLY #tells cloud build to send all build logs only to Cloud Logging (GCP Log Service)
@@ -122,7 +122,9 @@ timeout: "900s" #15 mins - if build takes longer than 15 mins, cloud build will 
 
 Note: In package.json file make sure it has "build": "ng build"!
 ng build creates www/ folder which is the standard location for app.yaml to find static files.
+
 Why do we need this?
+
 Answer: App Engine serves "browser-ready" files (for example: www/index.html). ng build turns the source code (typescript files, scss) into "browser-ready" (HTML, CSS, Javascript) files which App Engine can then find in www/ folder and deploy it on the browser.
 
 ### 6. Add .angular/cache in the .cloudignore file
@@ -149,3 +151,5 @@ gcloud app logs tail -s default
 Logs:
 2025-12-17 18:01:27 default[20251217t174807] "GET /676.a06f8992621c0155.js HTTP/1.1" 200
 These are HTTP Request Logs: default = default service that we specified in app.yaml. It is requesting for JS file. 200 is the HTTP status code for 'OK'
+
+push
